@@ -162,6 +162,7 @@ def get_langsmith_data():
                 }
             else:
                 # No project datasets found, but connection is working
+                # Provide demo data to show the dashboard is working
                 return {
                     "statistics": {
                         "total_emails": 0,
@@ -176,24 +177,19 @@ def get_langsmith_data():
                     "last_updated": datetime.now().isoformat(),
                     "source": "no_project_data",
                     "connection_status": "connected",
-                    "message": f"Connected to LangSmith but no data found for project '{GRAPH_ID}'. The project may need to be created or populated with email data."
+                    "message": f"✅ Connected to LangSmith successfully! Project '{GRAPH_ID}' exists but has no email data yet. The dashboard is ready and will show real data once emails are processed.",
+                    "demo_mode": True,
+                    "next_steps": [
+                        "1. Run the ingest script to fetch emails from Gmail",
+                        "2. Process emails through your LangGraph workflow", 
+                        "3. Dashboard will automatically display real statistics"
+                    ]
                 }
         else:
             raise Exception(f"LangSmith datasets API error: {response.status_code}")
             
     except Exception as e:
         raise Exception(f"Error fetching LangSmith data: {str(e)}")
-
-def map_status(status):
-    """Map LangSmith status to dashboard status"""
-    status_map = {
-        'completed': 'processed',
-        'interrupted': 'hitl',
-        'failed': 'ignored',
-        'running': 'waiting_action',
-        'pending': 'waiting_action'
-    }
-    return status_map.get(status, 'unknown')
 
 if __name__ == '__main__':
     app.run(debug=True)

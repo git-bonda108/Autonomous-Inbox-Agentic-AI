@@ -110,12 +110,58 @@
             margin: 20px 0;
             border: 1px solid #f5c6cb;
         }
+        .info-message {
+            background: #d1ecf1;
+            color: #0c5460;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border: 1px solid #bee5eb;
+        }
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border: 1px solid #c3e6cb;
+        }
+        .next-steps {
+            background: #fff3cd;
+            color: #856404;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border: 1px solid #ffeaa7;
+        }
+        .next-steps ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .next-steps li {
+            margin: 5px 0;
+        }
         .last-updated {
             text-align: center;
             color: #6c757d;
             font-size: 0.9em;
             padding: 20px;
             border-top: 1px solid #e1e5e9;
+        }
+        .connection-status {
+            text-align: center;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        .status-connected {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
         }
     </style>
 </head>
@@ -129,6 +175,29 @@
         {% if data.error %}
         <div class="error-message">
             <strong>Error:</strong> {{ data.error }}
+        </div>
+        {% endif %}
+        
+        {% if data.connection_status == "connected" %}
+        <div class="connection-status status-connected">
+            ✅ {{ data.message if data.message else "Connected to LangSmith successfully!" }}
+        </div>
+        {% elif data.connection_status == "error" %}
+        <div class="connection-status status-error">
+            ❌ Connection Error
+        </div>
+        {% endif %}
+        
+        {% if data.demo_mode %}
+        <div class="next-steps">
+            <strong>🚀 Dashboard is Ready!</strong>
+            <p>The dashboard is successfully connected to LangSmith and ready to display email data.</p>
+            <strong>Next Steps:</strong>
+            <ul>
+                {% for step in data.next_steps %}
+                <li>{{ step }}</li>
+                {% endfor %}
+            </ul>
         </div>
         {% endif %}
         
@@ -171,12 +240,18 @@
                 </div>
                 {% endfor %}
             {% else %}
-                <p>No email threads found.</p>
+                <div class="info-message">
+                    <strong>📭 No email threads found yet</strong>
+                    <p>This is normal when the system is first set up. Once you run the email ingestion script and process emails through your LangGraph workflow, real email data will appear here.</p>
+                </div>
             {% endif %}
         </div>
         
         <div class="last-updated">
             Last updated: {{ data.last_updated }}
+            {% if data.source %}
+            <br><small>Data source: {{ data.source }}</small>
+            {% endif %}
         </div>
     </div>
 
