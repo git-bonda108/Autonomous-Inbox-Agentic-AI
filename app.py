@@ -11,7 +11,7 @@ app = Flask(__name__)
 # LangSmith Configuration
 LANGSMITH_API_KEY = os.getenv("LANGSMITH_API_KEY")
 LANGSMITH_ENDPOINT = os.getenv("LANGSMITH_ENDPOINT", "https://api.smith.langchain.com")
-GRAPH_ID = os.getenv("GRAPH_ID", "autonomous-email-inbox")
+GRAPH_ID = os.getenv("GRAPH_ID", "email_assistant_hitl_memory_gmail")  # Updated to correct graph ID
 
 @app.route('/')
 def index():
@@ -109,7 +109,7 @@ def get_langsmith_data():
             datasets = response.json()
             
             # Look for datasets related to our project
-            project_datasets = [d for d in datasets if 'autonomous-email-inbox' in d.get('name', '')]
+            project_datasets = [d for d in datasets if GRAPH_ID in d.get('name', '')]
             
             if project_datasets:
                 # Use the first project dataset we find

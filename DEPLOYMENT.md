@@ -31,11 +31,11 @@ Add these in the **Environment Variables** section:
 
 ```
 LANGSMITH_API_KEY=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
-GRAPH_ID=autonomous-email-inbox
+GRAPH_ID=email_assistant_hitl_memory_gmail
 LANGSMITH_ENDPOINT=https://api.smith.langchain.com
 ```
 
-**Note:** The project name is now `autonomous-email-inbox` (not the previous one) - this is the actual project that exists in your LangSmith account.
+**Note:** The project name is now `email_assistant_hitl_memory_gmail` - this is the actual graph that exists in your LangSmith account.
 
 ### 6. **Deploy**
 - Click **"Deploy"**
@@ -53,7 +53,7 @@ LANGSMITH_ENDPOINT=https://api.smith.langchain.com
 
 - Your dashboard will be available at: `https://your-project-name.vercel.app`
 - It will automatically connect to LangSmith using the correct project name
-- You'll see real email statistics from your `autonomous-email-inbox` project
+- You'll see real email statistics from your `email_assistant_hitl_memory_gmail` project
 
 ## 🚨 **Important Framework Selection:**
 
@@ -71,4 +71,4 @@ The `vercel.json` has been corrected to remove invalid properties. It now uses o
 
 ## 🔧 **API Issue Fixed:**
 
-The app now uses the correct LangSmith project name (`autonomous-email-inbox`) and API endpoints that actually work.
+The app now uses the correct LangSmith project name (`email_assistant_hitl_memory_gmail`) and API endpoints that actually work.
