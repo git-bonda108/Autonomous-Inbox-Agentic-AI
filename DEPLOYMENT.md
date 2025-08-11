@@ -45,7 +45,7 @@ LANGSMITH_ENDPOINT=https://api.smith.langchain.com
 - ✅ **Install Command:** Installs Flask, requests, python-dotenv
 - ✅ **Output Directory:** Points to the Flask app
 - ✅ **Python Runtime:** Uses Python 3.11
-- ✅ **Function Configuration:** Sets proper timeouts and memory
+- ✅ **Vercel Configuration:** Proper Python deployment setup
 
 ## 🔍 **After Deployment:**
 
@@ -62,3 +62,7 @@ LANGSMITH_ENDPOINT=https://api.smith.langchain.com
 The repository is at: `https://github.com/git-bonda108/Autonomous-Inbox-Agentic-AI`
 
 **Everything is pre-configured - just deploy and add the 3 environment variables!** 🚀
+
+## ✅ **Configuration Fixed:**
+
+The `vercel.json` has been corrected to remove conflicting properties. It now uses the proper Vercel Python deployment format.
