@@ -18,6 +18,5 @@
   ],
   "installCommand": "pip install -r requirements.txt",
   "buildCommand": "bash vercel-build.sh",
-  "outputDirectory": ".",
-  "framework": "flask"
+  "outputDirectory": "."
 }
