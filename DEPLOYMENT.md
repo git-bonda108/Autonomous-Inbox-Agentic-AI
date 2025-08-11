@@ -20,7 +20,7 @@ All build settings are pre-configured in `vercel.json`. You just need to:
 
 ### 4. **Project Settings (AUTO-CONFIGURED)**
 - **Project Name:** `autonomous-inbox-agentic-ai` (or whatever you want)
-- **Framework Preset:** `Flask` (auto-detected)
+- **Framework Preset:** Select **"Other"** (Flask is not auto-detected)
 - **Root Directory:** `./` (auto-detected)
 - **Build Command:** `bash vercel-build.sh` (pre-configured)
 - **Output Directory:** `.` (pre-configured)
@@ -53,9 +53,9 @@ LANGSMITH_ENDPOINT=https://api.smith.langchain.com
 - It will automatically connect to LangSmith
 - You'll see real email statistics instead of 0s
 
-## 🚨 **If You Still See Build Settings:**
+## 🚨 **Important Framework Selection:**
 
-**IGNORE THEM!** The `vercel.json` file overrides all manual settings. Vercel will use our pre-configured settings automatically.
+**When Vercel asks for Framework Preset, select "Other"** - Flask is not in Vercel's auto-detection list, but our `vercel.json` handles all the Python configuration automatically.
 
 ## 📞 **Need Help?**
 
@@ -65,4 +65,4 @@ The repository is at: `https://github.com/git-bonda108/Autonomous-Inbox-Agentic-
 
 ## ✅ **Configuration Fixed:**
 
-The `vercel.json` has been corrected to remove conflicting properties. It now uses the proper Vercel Python deployment format.
+The `vercel.json` has been corrected to remove invalid properties. It now uses only valid Vercel configuration options.
