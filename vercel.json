@@ -16,16 +16,6 @@
       "dest": "app.py"
     }
   ],
-  "functions": {
-    "app.py": {
-      "maxDuration": 30
-    }
-  },
-  "build": {
-    "env": {
-      "PYTHONPATH": "."
-    }
-  },
   "installCommand": "pip install -r requirements.txt",
   "buildCommand": "bash vercel-build.sh",
   "outputDirectory": ".",
