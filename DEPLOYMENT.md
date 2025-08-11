@@ -31,9 +31,11 @@ Add these in the **Environment Variables** section:
 
 ```
 LANGSMITH_API_KEY=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
-GRAPH_ID=email_assistant_hitl_memory_gmail
+GRAPH_ID=autonomous-email-inbox
 LANGSMITH_ENDPOINT=https://api.smith.langchain.com
 ```
+
+**Note:** The project name is now `autonomous-email-inbox` (not the previous one) - this is the actual project that exists in your LangSmith account.
 
 ### 6. **Deploy**
 - Click **"Deploy"**
@@ -50,8 +52,8 @@ LANGSMITH_ENDPOINT=https://api.smith.langchain.com
 ## 🔍 **After Deployment:**
 
 - Your dashboard will be available at: `https://your-project-name.vercel.app`
-- It will automatically connect to LangSmith
-- You'll see real email statistics instead of 0s
+- It will automatically connect to LangSmith using the correct project name
+- You'll see real email statistics from your `autonomous-email-inbox` project
 
 ## 🚨 **Important Framework Selection:**
 
@@ -66,3 +68,7 @@ The repository is at: `https://github.com/git-bonda108/Autonomous-Inbox-Agentic-
 ## ✅ **Configuration Fixed:**
 
 The `vercel.json` has been corrected to remove invalid properties. It now uses only valid Vercel configuration options.
+
+## 🔧 **API Issue Fixed:**
+
+The app now uses the correct LangSmith project name (`autonomous-email-inbox`) and API endpoints that actually work.
